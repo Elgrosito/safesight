@@ -1,6 +1,4 @@
-
 from matplotlib import pyplot as plt
-
 
 def visualizacion_resultados(history):
   epochs = [i for i in range(20)]
