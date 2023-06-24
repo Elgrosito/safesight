@@ -1,0 +1,5 @@
+#GCP project
+GCP_REGION=europe-west1
+GCP_PROJECT=safesight
+BUCKET_NAME=safesight
+GOOGLE_APPLICATION_CREDENTIALS=lewagon-bigdata-388804-9d56d2bc26c7.json

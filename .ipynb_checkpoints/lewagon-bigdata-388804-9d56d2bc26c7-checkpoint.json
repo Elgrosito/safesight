@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "lewagon-bigdata-388804",
+  "private_key_id": "9d56d2bc26c70fb5901c4c0448e020b1217e7d09",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCh2862ceeWJ+BQ\nn6+bm+yWTEFcoxL0Fv6t7VOH0cOKW4SaWbwYQ4/kA39CBLAeIxYBrqlthvQIU0yd\nemfb9EKLXQXtE2Cf7tpqYtlvnP4q8nBaf1OJhe+zluKH8Kkw8TcpniMmMj6QS3Qt\nPg1BYk6bAm5s1EbXv5+s2g0kRalJyNpNLg5oE2nBpLPGkhn+JHbkgXBXIzjYQyYl\nTjwFIV3p4ZOG8kCUwPYyTucv3upBRXk4WOXSKEb4HQTdGr4GkQxDsu+iU5JtTCsH\nlClHbiRXaSV24Ceila4Jy4rYtgpR9/xB4hiBLulqJwNatdx6BdwQDbHbNA0iiRI4\ngZtD65GRAgMBAAECggEACu6oQx1laXhvB7MJbua0r6Ad6A5hqNfmwsOdWTabUPyG\nc9BsymzBysJLtZ9Qb/Cpu1pbOjkbwXYy3g4W9r3EQtp5HH6rD5JX8UiU7Bt79VWj\nrhEciNThkE04JrtkChi4w5hZQmqxXBikk6u1xH1J1uFuqO4bjNX2CHw/1/vWh9Or\n+48evCu7U0DmtKDJvLzR4XGzUnu3338VmEPjDO7hAS0kjMqpkOsj5+oJLzJYrTdh\nK5FOr1bYstwk/cFZJGZiS7YmIo0uorEDGmg6iyY17oZWSncVUCp5Dwt2vwhgGvkF\n8f+jsppPjYVffOafGRf19ymTsCcCqJO0vcRh8A5jowKBgQDhNID5h0xtMCaUr/QJ\nTw1G4gq6RlhN88+t1BLhoZNPyQUXqANbPN0x29oUe8pkZ1qDLwKddgr/aHvf4bIR\n9FNTvMeqMlIajFJESEnaVBWGANxh09riyoBIYM6SRFlemIVwgEgVj31a9MJ4JojT\nL22ZDhhizqPFxkoaBICf9D0mSwKBgQC3/c52oPW+xip3t2yCeEo/aDAq9yQiUDnr\nnfpb38Glck+s1KfMPSigvPDP+Mja5EuxtZEG4kHizZttdAepke+a9/Uy1Rv5YBXu\n/kBzXSNKlOD6/rGnjSwzDgWhE+C5wf/WgTpfWRlyA6N3UnlvNeMQ40ZtzaEXH0S0\noFGeYFjuEwKBgQDdy9juaGtD6jVFIRnGhT29Puhz1s4nT+WM/J3v7DLqVD+YsddE\nZ2guL6nTnKuTQRsqsgTwUY65Rw0hTOYUur3KbdVzcQXdsa9gIpXh2ggspvJlwsID\ntI6tOfKYqYofGTXqu9zCp0Q9bWuN6927qC1XnUM1JPC02vqmLyMC5gfHiwKBgQCG\nkyazUBHOwuUHAWtllpRAAnXQx0lvq5xhwQAAuQ3LdGvgbv54fXc88lV02HQY3oia\n58G29kDYoiiACzEbjzlg8OIwlv1KDkSctOzxNHt+rpxMGYRZmAFvKl9lrMNfOw1k\nmMrYOLRK12x19yYI+LInhQTbhV7BKca4Etb/71q8bwKBgGHTJNRyYLPdwS1CBIG6\nSkkYdc4RDnEJJfiZomHZsCBkiakySNWIwYK7YUVJe6+VaAsMKyRh6Hc1ezICCCg9\nGnJngZ9llCKCOwxkjT08kWY9ax8VVA912SC0zSwht21nS9B+iHiO3MSv84Hryhuy\nUu4Dh7WC+RjJ+lPbQD24fzDU\n-----END PRIVATE KEY-----\n",
+  "client_email": "admin-storage@lewagon-bigdata-388804.iam.gserviceaccount.com",
+  "client_id": "107014224102020206588",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/admin-storage%40lewagon-bigdata-388804.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
