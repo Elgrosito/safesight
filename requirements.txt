@@ -1,6 +1,5 @@
-tensorflow==2.13.0
+tensorflow==2.13.0rc0
 google-cloud-storage==2.9.0
-#opencv-python==4.7.0.72
+opencv-python==4.7.0.72
 tensorflow_hub==0.13.0
-opencv-python==4.5.4.60
 #opencv-contrib-python==4.7.0.72
