@@ -1,6 +1,10 @@
 import csv
 import cv2
 import os
+from PIL import Image
+import numpy as np
+import matplotlib.pyplot as plt
+
 
 def preprocess_video_frames(video_path, csv_file):
     labels = []
@@ -39,3 +43,14 @@ def preprocess_video_frames(video_path, csv_file):
             ])
 
     return labels, boxes, frame_list, none
+
+
+
+def categorizar(image_path, model):
+    img = Image.open(image_path)
+    img = np.array(img).astype(float) / 255
+
+    img = cv2.resize(img, (224, 224))
+
+    prediccion = model.predict(img.reshape(-1, 224, 224, 3))
+    return np.argmax(prediccion[0], axis=-1)
