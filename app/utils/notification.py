@@ -1,7 +1,9 @@
 import os
+from typing import Any
 from twilio.rest import Client
 
-def send_whatsapp_message():
+def send_whatsapp_message(object: Any):
+    print(object)
 
     fb_account_id = os.environ['FB_ACCOUNTID']
     auth_token = os.environ['AUTH_TOKEN']
@@ -22,8 +24,6 @@ def send_whatsapp_message():
 
     # Verifica el estado del mensaje
     if message.status == "queued" or message.status == "sent":
-        # El mensaje se envió correctamente
         return "Mensaje de WhatsApp enviado correctamente"
     else:
-        # Hubo un error al enviar el mensaje
         return  message.error_message
