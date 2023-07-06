@@ -1,25 +1,48 @@
 import base64
-from fastapi import APIRouter, Request
-
+import subprocess
+import aiohttp
+from fastapi import WebSocket, WebSocketDisconnect
+import cv2
+from fastapi import APIRouter
+from app.utils.modelling import run_object_detection
 from app.utils.notification import send_whatsapp_message
+from app.utils.video import draw_rectangles, predict
 
 router = APIRouter()
 
-@router.post("/detect-weapon")
-async def detect(request: Request):
-    print(request)
-    # # Obtener la imagen del request
-    # data = await request.json()
-    # img_data = data['image'].split(',', 1)[1]
-    # img_data = base64.b64decode(img_data)
-    # image = Image.open(io.BytesIO(img_data))
+message_sent = False
+@router.websocket("/ws")
+async def get_stream(websocket: WebSocket):
+    global message_sent
 
-    # # Pasar la imagen al modelo YOLO
-    # objetos_detectados = detectar_objeto(image)
+    await websocket.accept()
 
-    # # Si se detecta un objeto, enviar una notificación (esto es solo un ejemplo)
-    # if objetos_detectados:
-    #     send_whatsapp_message(objetos_detectados)
+    while True:
+        try:
+            cap = cv2.VideoCapture(1)
 
-    # # Devolver una respuesta
-    # return {'objetos_detectados': objetos_detectados}
+            while True:
+                success, frame = cap.read()
+                if not success:
+                    break
+                else:
+                    # aqui va la funcion que recibe el frma y hace la prediccion
+                    detections = predict(frame)
+                    frame_copy = frame.copy()
+
+                    draw_rectangles(frame, detections)
+
+                    #Transmision
+                    _, buffer = cv2.imencode('.jpg', frame)
+                    frame_base64 = base64.b64encode(buffer).decode('utf-8')
+                    await websocket.send_bytes(frame_base64)
+
+                    # envía un mensaje
+                    if not message_sent and any(detection[4] > 0.7 for detection in detections):
+                        send_whatsapp_message(frame_copy)
+                        message_sent = True
+
+        except WebSocketDisconnect:
+            print("Client disconnected")
+            message_sent = False
+            await websocket.accept()
