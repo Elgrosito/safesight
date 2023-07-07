@@ -28,7 +28,6 @@ async def get_stream(websocket: WebSocket):
                 else:
                     # aqui va la funcion que recibe el frma y hace la prediccion
                     detections = predict(frame)
-                    frame_copy = frame.copy()
 
                     draw_rectangles(frame, detections)
 
@@ -39,6 +38,7 @@ async def get_stream(websocket: WebSocket):
 
                     # envía un mensaje
                     if not message_sent and any(detection[4] > 0.7 for detection in detections):
+                        frame_copy = frame.copy()
                         send_whatsapp_message(frame_copy)
                         message_sent = True
 

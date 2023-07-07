@@ -139,11 +139,8 @@ import torch
 model = torch.hub.load('ultralytics/yolov5', 'custom', path='yolov5/runs/train/exp4/weights/best.pt')
 
 def predict(frame):
-    # Recuerda que YOLOv5 espera imágenes en formato RGB, mientras que OpenCV lee imágenes en formato BGR.
-    # Entonces, necesitas convertir de BGR a RGB.
     rgb_frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
 
-    # Realiza la inferencia
     results = model(rgb_frame)
 
     # El atributo .xyxy[0] de los resultados contiene las coordenadas de los rectángulos de delimitación de las detecciones.
