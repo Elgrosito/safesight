@@ -1125,6 +1125,14 @@ Version: 1.0
      box-shadow: 0 0 11px #ececec;
      transition-duration: 0.4s;
 }
+
+.single-video{
+  max-width: 1000px;
+  text-align: center;
+  margin: 0 auto;
+  margin-bottom: 20px;
+}
+
  .single-video-title h2 {
      font-size: 18px;
 }
@@ -1549,4 +1557,11 @@ Version: 1.0
     .sidebar-toggled .sidebar .channel-sidebar-list {
         display: none;
     }
+}
+
+
+/***** Custom code *****/
+
+.vh-100{
+  height: 100vh;
 }
