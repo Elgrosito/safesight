@@ -1,0 +1,9 @@
+nvidia-cublas-cu12==12.2.1.16
+nvidia-cuda-runtime-cu12==12.2.53
+nvidia-cudnn-cu12==8.9.2.26
+nvidia-pyindex==1.0.9
+tensorrt==8.6.1
+tensorrt-bindings==8.6.1
+tensorrt-libs==8.6.1
+onnxsim
+onnx

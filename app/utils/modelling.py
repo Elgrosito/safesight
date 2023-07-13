@@ -3,6 +3,9 @@ import subprocess
 import shlex
 import time
 import json
+import tensorrt as trt
+#import pycuda.autoinit
+#import pycuda.driver as cuda
 
 def run_object_detection(path, experiment, test_video, min_conf):
     weights = f"{path}/runs/train/{experiment}/weights/best.pt"
@@ -110,3 +113,46 @@ def train_model_magic(data_file, cfg_file, weights, hyp_file, recipe, recipe_arg
 #    hyp_file="data/hyps/hyp.finetune.yaml",
 #    recipe="zoo:cv/detection/yolov5-s/pytorch/ultralytics/coco/pruned_quant-aggressive_94"
 #)
+
+def build_engine(model_file, max_ws=512*1024*1024, fp16=False):
+    """with this function we take an ONNX file and convert it to engine, which allows us to use it on tensorRT (optimized for GPU)"""
+    print("building engine")
+    TRT_LOGGER = trt.Logger(trt.Logger.WARNING)
+    builder = trt.Builder(TRT_LOGGER)
+
+    if fp16:
+        builder.set_flag(trt.BuilderFlag.FP16)
+
+    config = builder.create_builder_config()
+    config.max_workspace_size = max_ws
+
+    #explicit_batch = 1 << int(trt.NetworkDefinitionCreationFlag.EXPLICIT_BATCH)
+    explicit_batch = 1 << (int)(trt.NetworkDefinitionCreationFlag.EXPLICIT_BATCH)
+    builder.create_network(explicit_batch)
+    network = builder.create_network(explicit_batch)
+    with trt.OnnxParser(network, TRT_LOGGER) as parser:
+        with open(model_file, 'rb') as model:
+            parsed = parser.parse(model.read())
+            print("network.num_layers", network.num_layers)
+            #last_layer = network.get_layer(network.num_layers - 1)
+            #network.mark_output(last_layer.get_output(0))
+            engine = builder.build_engine(network, config=config)
+            return engine
+
+def build_engine_with_trtexec():
+    model_path = "best_cam-sim.onnx"
+    engine_path = "/notebooks/engine.plan"
+    command = ['trtexec', '--onnx={}'.format(model_path), '--saveEngine={}'.format(engine_path),'--explicitBatch','--minShapes=input:1x3x1920x1080','--optShapes=input:4x3x1920x1080','--maxShapes=input:4x3x1920x1080', '--shapes=input:4x3x1920x1080']
+
+    result = subprocess.run(command, stdout=subprocess.PIPE, text=True)
+
+    # Check the command returncode. It is command exit code which indicates the
+    # status code - if 0, the command was successful; if non-zero then not
+    print(result.returncode)
+
+    # Output the command result to stdout
+    print(result.stdout)
+
+#build_engine_with_trtexec()
+
+#engine = build_engine("best_cam-sim.onnx")
