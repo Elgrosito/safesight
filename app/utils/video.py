@@ -136,7 +136,7 @@ import torch
 #         print("No pistol or handgun detected.")
 
 
-model = torch.hub.load('ultralytics/yolov5', 'custom', path='yolov5/runs/train/exp4/weights/best.pt')
+model = torch.hub.load('ultralytics/yolov5', 'custom', path='yolov5/runs/train/exp4/weights/best_cam.pt')
 
 def predict(frame):
     rgb_frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
@@ -151,7 +151,7 @@ def predict(frame):
     return detections
 
 def draw_rectangles(frame, detections):
-    classes = ['knife', 'pistol']
+    classes = ['pistol', 'knife']
     for detection in detections:
         x1, y1, x2, y2, conf, cls = detection
 

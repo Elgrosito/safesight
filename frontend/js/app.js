@@ -5,7 +5,16 @@ ws.onopen = function(event) {
   console.log('WebSocket connection established');
 };
 
+ws.onerror = function(event) {
+  console.error('WebSocket error:', event);
+};
+
+ws.onclose = function(event) {
+  console.log('WebSocket connection closed');
+};
+
 ws.onmessage = function(event) {
+  if (!listening) return;
   const frameData = event.data;
 
   // Convert base64 string back to binary
@@ -24,12 +33,14 @@ ws.onmessage = function(event) {
 
   // Set the src property of the image element to the Blob object.
   frameElement.src = frameUrl;
+
 };
 
-ws.onclose = function(event) {
-  console.log('WebSocket connection closed');
-};
+function initProcess() {
+  listening = true;
+}
 
-ws.onerror = function(event) {
-  console.error('WebSocket error:', event);
-};
+function stopProcess() {
+  listening = false;
+  frameElement.src = 'https://imgsvr.radiocut.site/get/thumb/900/900/cuts_logos/80/2f/802fb220-63ef-42d5-b105-1b225223c1ee.jpg';
+}

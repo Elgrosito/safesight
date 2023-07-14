@@ -1,10 +1,7 @@
 import base64
-import subprocess
-import aiohttp
 from fastapi import WebSocket, WebSocketDisconnect
 import cv2
 from fastapi import APIRouter
-from app.utils.modelling import run_object_detection
 from app.utils.notification import send_whatsapp_message
 from app.utils.video import draw_rectangles, predict
 
@@ -19,7 +16,7 @@ async def get_stream(websocket: WebSocket):
 
     while True:
         try:
-            cap = cv2.VideoCapture(1)
+            cap = cv2.VideoCapture(0)
 
             while True:
                 success, frame = cap.read()
