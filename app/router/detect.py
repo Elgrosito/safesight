@@ -16,7 +16,7 @@ async def get_stream(websocket: WebSocket):
 
     while True:
         try:
-            cap = cv2.VideoCapture(0)
+            cap = cv2.VideoCapture(1)
 
             while True:
                 success, frame = cap.read()
@@ -26,7 +26,7 @@ async def get_stream(websocket: WebSocket):
                     # aqui va la funcion que recibe el frma y hace la prediccion
                     detections = predict(frame)
 
-                    draw_rectangles(frame, detections)
+                    conf = draw_rectangles(frame, detections)
 
                     #Transmision
                     _, buffer = cv2.imencode('.jpg', frame)
@@ -34,7 +34,7 @@ async def get_stream(websocket: WebSocket):
                     await websocket.send_bytes(frame_base64)
 
                     # envía un mensaje
-                    if not message_sent and any(detection[4] > 0.7 for detection in detections):
+                    if not message_sent and conf is not None and conf > 0.7:
                         frame_copy = frame.copy()
                         send_whatsapp_message(frame_copy)
                         message_sent = True
