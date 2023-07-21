@@ -3,6 +3,17 @@ const ws = new WebSocket('ws://localhost:8200/v1/detect/ws');
 
 ws.onopen = function(event) {
   console.log('WebSocket connection established');
+    // Mapeo de paths a canales
+    const channelMapping = {
+      '/frontend/video-page-2.html': 1,
+      '/frontend/video-page-3.html': 2
+    };
+
+    const URLactual = window.location;
+
+    // Busca el canal en el mapeo, default a 0 si no se encuentra
+    const channel = channelMapping[URLactual.pathname] || 0;
+    ws.send(channel);
 };
 
 ws.onerror = function(event) {
@@ -14,7 +25,7 @@ ws.onclose = function(event) {
 };
 
 ws.onmessage = function(event) {
-  if (!listening) return;
+  // if (!listening) return;
   const frameData = event.data;
 
   // Convert base64 string back to binary

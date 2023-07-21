@@ -14,16 +14,22 @@ async def get_stream(websocket: WebSocket):
 
     await websocket.accept()
 
+    current_channel = 9
     while True:
+        channel = await websocket.receive_text()  #recibo canal enviado desde el front
+        channel = int(channel)
+        if channel != current_channel:
+            message_sent = False
+            current_channel = channel
         try:
-            cap = cv2.VideoCapture(1)
+            cap = cv2.VideoCapture(channel)
 
             while True:
                 success, frame = cap.read()
                 if not success:
                     break
                 else:
-                    # aqui va la funcion que recibe el frma y hace la prediccion
+                    # Recibe el frma y hace la prediccion
                     detections = predict(frame)
 
                     conf = draw_rectangles(frame, detections)

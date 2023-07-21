@@ -9,7 +9,7 @@
       <meta name="author" content="Askbootstrap">
       <title>Safesight</title>
       <!-- Favicon Icon -->
-      <link rel="icon" type="image/png" href="img/logo.png">
+      <link rel="icon" type="image/png" href="img/favicon.png">
       <!-- Bootstrap core CSS-->
       <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
       <!-- Custom fonts for this template-->
@@ -32,30 +32,6 @@
           </form>
          <!-- Navbar -->
          <ul class="navbar-nav ml-auto ml-md-0 osahan-right-navbar">
-            <li class="nav-item dropdown no-arrow mx-1">
-               <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-               <i class="fas fa-bell fa-fw"></i>
-               <span class="badge badge-danger">9+</span>
-               </a>
-               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="alertsDropdown">
-                  <a class="dropdown-item" href="#"><i class="fas fa-fw fa-edit "></i> &nbsp; Action</a>
-                  <a class="dropdown-item" href="#"><i class="fas fa-fw fa-headphones-alt "></i> &nbsp; Another action</a>
-                  <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" href="#"><i class="fas fa-fw fa-star "></i> &nbsp; Something else here</a>
-               </div>
-            </li>
-            <li class="nav-item dropdown no-arrow mx-1">
-               <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-               <i class="fas fa-envelope fa-fw"></i>
-               <span class="badge badge-success">7</span>
-               </a>
-               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="messagesDropdown">
-                  <a class="dropdown-item" href="#"><i class="fas fa-fw fa-edit "></i> &nbsp; Action</a>
-                  <a class="dropdown-item" href="#"><i class="fas fa-fw fa-headphones-alt "></i> &nbsp; Another action</a>
-                  <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" href="#"><i class="fas fa-fw fa-star "></i> &nbsp; Something else here</a>
-               </div>
-            </li>
             <li class="nav-item dropdown no-arrow osahan-right-navbar-user">
                <a class="nav-link dropdown-toggle user-dropdown-link" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                <img alt="Avatar" src="img/user.png">
@@ -117,7 +93,7 @@
                                  <a class="dropdown-item" href="#"><i class="fas fa-fw fa-times-circle"></i> &nbsp; Close</a>
                               </div>
                            </div>
-                           <h6>Featured Videos</h6>
+                           <h6>Cámaras monitoreadas</h6>
                         </div>
                      </div>
                      <div class="col-xl-3 col-sm-6 mb-3">
@@ -165,15 +141,15 @@
                         <div class="video-card">
                            <div class="video-card-image">
                               <a class="play-icon" href="#"><i class="fas fa-play-circle"></i></a>
-                              <a href="#"><img class="img-fluid" src="img/v3.png" alt=""></a>
+                              <a href="video-page.html"><img id="frame" class="img-fluid" width="100%"/></a>
                               <div class="time">3:50</div>
                            </div>
                            <div class="video-card-body">
                               <div class="video-title">
-                                 <a href="#">There are many variations of passages of Lorem</a>
+                                 <a href="video-page.html">Cámara de seguridad en Bogotá - habitación</a>
                               </div>
-                              <div class="video-page text-danger">
-                                 Education  <a title="" data-placement="top" data-toggle="tooltip" href="#" data-original-title="Unverified"><i class="fas fa-frown text-danger"></i></a>
+                              <div class="video-page text-success">
+                                 Education  <a title="" data-placement="top" data-toggle="tooltip" href="#" data-original-title="Unverified"><i class="fas fa-check-circle text-success"></i></a>
                               </div>
                               <div class="video-view">
                                  1.8M views &nbsp;<i class="fas fa-calendar-alt"></i> 11 Months ago
@@ -284,7 +260,7 @@
                   </div>
                </div>
                <hr class="mt-0">
-               <div class="video-block section-padding">
+               <!-- <div class="video-block section-padding">
                   <div class="row">
                      <div class="col-md-12">
                         <div class="main-title">
@@ -366,12 +342,12 @@
                         </div>
                      </div>
                   </div>
-               </div>
+               </div> -->
             </div>
             <!-- /.container-fluid -->
             <!-- Sticky Footer -->
-            <footer class="sticky-footer">
-            </footer>
+            <!-- <footer class="sticky-footer">
+            </footer> -->
          </div>
          <!-- /.content-wrapper -->
       </div>
@@ -407,6 +383,7 @@
       <script src="vendor/owl-carousel/owl.carousel.js"></script>
       <!-- Custom scripts for all pages-->
       <script src="js/custom.js"></script>
+      <script src="js/app.js"></script>
    </body>
 
 </html>

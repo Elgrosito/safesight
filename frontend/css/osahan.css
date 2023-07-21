@@ -161,7 +161,7 @@ Version: 1.0
 }
  .sidebar {
      width: 90px !important;
-     background: #495464;
+     background: #28282c;
     /* Old browsers */
     /* background: -moz-linear-gradient(-45deg, #ff516b 0%, #826cfd 100%); */
     /* FF3.6-15 */
@@ -978,7 +978,6 @@ Version: 1.0
 }
  .login-main-left {
      margin: auto;
-     max-width: 335px;
 }
  .login-main-right.bg-white {
      border-radius: 2px;
@@ -1564,4 +1563,21 @@ Version: 1.0
 
 .vh-100{
   height: 100vh;
+}
+
+.logo-container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo{
+  width: 200px;
+  margin: 0 auto;
+}
+
+.video-streaming{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }

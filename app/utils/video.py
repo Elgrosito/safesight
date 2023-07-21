@@ -19,7 +19,6 @@ def draw_rectangles(frame, boxes):
         x1, y1, x2, y2 = box.xyxy[0]
         cls = int(box.cls)
         conf = box.conf[0]
-        print('conf', conf)
 
         # Conversión de coordenadas y clase a int
         x1, y1, x2, y2 = map(int, (x1, y1, x2, y2))

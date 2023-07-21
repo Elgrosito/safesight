@@ -1,3 +1,4 @@
+import datetime
 import os
 from typing import Any
 from twilio.rest import Client
@@ -24,7 +25,9 @@ def send_whatsapp_message(frame: Any):
         # Crea un cliente de Google Cloud Storage
         client = storage.Client()
         bucket = client.get_bucket('safesight')
-        blob = bucket.blob('evidencia.jpeg')
+        timestamp = datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
+        filename = f"evidencia-{timestamp}.jpeg"
+        blob = bucket.blob(filename)
         blob.upload_from_string(img_bytes_reduced, content_type='image/jpeg')
 
         # Obtiene la URL pública
